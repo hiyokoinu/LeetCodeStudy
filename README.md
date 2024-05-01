@@ -1,1 +1,2 @@
-# sample_2
+# LeetCode
+NeetCodeのRoadmapを参考に勉強を行う。
