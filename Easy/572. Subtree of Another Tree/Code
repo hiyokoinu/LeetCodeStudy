@@ -1,0 +1,22 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isSubtree(self, root:TreeNode, sub:TreeNode) -> bool:
+        if not sub: return True
+        if not root: return False
+
+        if self.sameTree(root, sub):
+            return True
+        
+        return (self.isSubtree(root.left, sub) or self.isSubtree(root.right, sub))
+
+    def sameTree(self, root, sub):
+        if not root and not sub:
+            return True
+        if root and sub and root.val == sub.val:
+            return (self.sameTree(root.left, sub.left) and self.sameTree(root.right, sub.right))
+        return False
